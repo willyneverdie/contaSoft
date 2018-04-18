@@ -4,4 +4,34 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>CompanyInfo</servlet-name>
+  	<display-name>CompanyInfo</display-name>
+  	<description></description>
+  	<servlet-class>com.cs.entities.CompanyInfo</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>TaxPayerInfo</servlet-name>
+  	<display-name>TaxPayerInfo</display-name>
+  	<description></description>
+  	<servlet-class>com.cs.entities.TaxPayerInfo</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ClientInfo</servlet-name>
+  	<display-name>ClientInfo</display-name>
+  	<description></description>
+  	<servlet-class>ClientInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>CompanyInfo</servlet-name>
+  	<url-pattern>/CompanyInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>TaxPayerInfo</servlet-name>
+  	<url-pattern>/TaxPayerInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ClientInfo</servlet-name>
+  	<url-pattern>/ClientInfo</url-pattern>
+  </servlet-mapping>
 </web-app>
