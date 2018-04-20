@@ -7,6 +7,9 @@
   <persistence-unit name="persitenceH2">
 
 	<class>com.dao.entities.TaxPayer</class>
+	<class>com.dao.commonentities.Address</class>
+	<class>com.dao.commonentities.RealEstate</class>
+	
     <properties>
         <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
         <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:test" />

@@ -2,10 +2,16 @@ package com.dao.entities;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.dao.commonentities.Address;
 
 
 @Entity
@@ -27,7 +33,11 @@ public class TaxPayer implements Serializable{
 	@Column
 	private String email;
 	
-	
+	@OneToOne(cascade = {
+			CascadeType.ALL
+	})
+	@JoinColumn(name="code")
+	private Address address;
 	
 	public TaxPayer(String rut, String name, String lastName, String email) {
 	
@@ -36,6 +46,20 @@ public class TaxPayer implements Serializable{
 		this.lastName = lastName;
 		this.email = email;
 	}
+
+	
+	
+	public Address getAddress() {
+		return address;
+	}
+
+
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+
 
 	public TaxPayer() {
 		
@@ -71,6 +95,14 @@ public class TaxPayer implements Serializable{
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "TaxPayer [rut=" + rut + ", name=" + name + ", lastName=" + lastName + ", email=" + email + ", address="
+				+ address + "]";
 	}
 
 		
