@@ -3,6 +3,7 @@ package com.cs.entities;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -57,15 +58,29 @@ public class CompanyInfo extends HttpServlet {
 		
 		
 		String objectToReturn = "{ key1: 'value1', key2: 'value2' }";
+		
 		Gson gson = new Gson();
 		String tmp = gson.toJson(taxpayer, new TypeToken<List<TaxPayer>>() {}.getType());
+		
+		//new list
+		List<String> test = new ArrayList<>();
+		test.add("Will");
+		test.add("Bee");
+		
+		
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		// Get the printwriter object from response to write the required json object to the output stream      
 		PrintWriter out = response.getWriter();
+		request.setAttribute("clients", "Williams");
+		request.setAttribute("list", test);
+		request.setAttribute("client", tmp);
+		request.getRequestDispatcher("/WEB-INF/products.jsp").forward(request, response);
+		
 		// Assuming your json object is **jsonObject**, perform the following, it will return your json object  
-		out.print(tmp);
-		out.flush();
+		//out.print(tmp);
+		//out.flush();
+		
 		
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}

@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!doctype html>
 <html>
 <head>
@@ -14,6 +15,19 @@
 <body>
 
 	<div class="container">
+	
+	
+	
+	<form action="CompanyInfo" method="post">
+	
+		<input type="submit" value="ver clientes">
+	</form>
+	
+	<c:forEach items="${produits}" var="items">
+    	Item Key: ${items.key}<br>
+    	Item Name: <b>${items.value.nom}</b><br>   
+	</c:forEach>
+	
 	
 		<div class="row">
 		
